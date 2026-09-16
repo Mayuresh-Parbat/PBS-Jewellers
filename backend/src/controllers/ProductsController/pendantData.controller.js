@@ -56,4 +56,39 @@ const getPendantDataWithAdmin = asyncHandler(async (req, res) => {
     })
   );
 
- 
+  const newPendant = await PendantData.create({
+    ProductImages: uploadedImages,
+    ProductName,
+    ProductCategory,
+    ProductPrice,
+    ProductQty,
+    ProductDescription,
+    ProductGender,
+    adminId,
+  });
+
+  res.status(201).json(
+    new apiResponse(201, "Pendant data added successfully", {
+      pendantData: newPendant,
+    })
+  );
+});
+
+const getPendantData = asyncHandler(async (req, res) => {
+  try {
+    const pendants = await PendantData.find(); // Fetch all pendants from the database
+
+    if (!pendants || pendants.length === 0) {
+      throw new apiError(404, "No pendants found");
+    }
+
+    res.status(200).json(
+      new apiResponse(200, "Pendants fetched successfully", { pendants })
+    );
+  } catch (error) {
+    throw new apiError(500, "Error fetching pendant data");
+  }
+});
+
+export { getPendantDataWithAdmin, getPendantData };
+
