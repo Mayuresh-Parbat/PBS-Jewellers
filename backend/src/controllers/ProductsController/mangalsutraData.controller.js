@@ -55,5 +55,40 @@ const getMangalsutraDataWithAdmin = asyncHandler(async (req, res) => {
       return uploadedImage.url; // Store the URL for each uploaded image
     })
   );
+const newMangalsutra = await MangalsutraData.create({
+    ProductImages: uploadedImages,
+    ProductName,
+    ProductCategory,
+    ProductPrice,
+    ProductQty,
+    ProductDescription,
+    ProductGender,
+    adminId,
+  });
+
+  res.status(201).json(
+    new apiResponse(201, "Mangalsutra data added successfully", {
+      mangalsutraData: newMangalsutra,
+    })
+  );
+});
+
+const getMangalsutraData = asyncHandler(async (req, res) => {
+  try {
+    const mangalsutras = await MangalsutraData.find(); // Fetch all mangalsutras from the database
+
+    if (!mangalsutras || mangalsutras.length === 0) {
+      throw new apiError(404, "No mangalsutras found");
+    }
+
+    res.status(200).json(
+      new apiResponse(200, "Mangalsutras fetched successfully", { mangalsutras })
+    );
+  } catch (error) {
+    throw new apiError(500, "Error fetching mangalsutra data");
+  }
+});
+
+export { getMangalsutraDataWithAdmin, getMangalsutraData };
 
   
