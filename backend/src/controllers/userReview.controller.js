@@ -48,3 +48,25 @@ const getReviewsByUser = asyncHandler(async (req, res) => {
     return res.status(200).json(new apiResponse(200, reviews, "User reviews fetched successfully"));
 });
 
+// Update Review
+const updateReview = asyncHandler(async (req, res) => {
+    const { reviewId, reviewTitle, reviewRating, reviewComment } = req.body;
+
+    if (!reviewId) {
+        throw new apiError(400, "Review ID is required");
+    }
+
+    const updatedReview = await Review.findByIdAndUpdate(
+        reviewId,
+        { $set: { reviewTitle, reviewRating, reviewComment } },
+        { new: true, runValidators: true }
+    );
+
+    if (!updatedReview) {
+        throw new apiError(404, "Review not found");
+    }
+
+    return res.status(200).json(new apiResponse(200, updatedReview, "Review updated successfully"));
+});
+
+
