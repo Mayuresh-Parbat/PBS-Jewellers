@@ -75,3 +75,21 @@ const newRing = await RingData.create({
   );
 });
 
+const getRingData = asyncHandler(async ( req, res ) => {
+  try {
+    const rings = await RingData.find(); // Fetch all rings from the database
+
+    if (!rings || rings.length === 0) {
+      throw new apiError(404, "No rings found");
+    }
+
+    res.status(200).json(
+      new apiResponse(200, "Rings fetched successfully", { rings })
+    );
+  } catch (error) {
+    throw new apiError(500, "Error fetching ring data");
+  }
+});
+
+export { getRingDataWithAdmin, getRingData };
+  
