@@ -35,4 +35,16 @@ const getReviewsByProduct = asyncHandler(async (req, res) => {
 
     return res.status(200).json(new apiResponse(200, reviews, "Reviews fetched successfully"));
 });
+// Get Reviews by User ID
+const getReviewsByUser = asyncHandler(async (req, res) => {
+    const { userId } = req.params;
+
+    if (!userId) {
+        throw new apiError(400, "User ID is required");
+    }
+
+    const reviews = await Review.find({ userId });
+
+    return res.status(200).json(new apiResponse(200, reviews, "User reviews fetched successfully"));
+});
 
