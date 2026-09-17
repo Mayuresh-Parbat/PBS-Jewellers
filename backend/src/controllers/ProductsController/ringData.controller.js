@@ -57,5 +57,21 @@ const getRingDataWithAdmin = asyncHandler(async (req, res) => {
       return uploadedImage.url; // Store the URL for each uploaded image
     })
   );
+const newRing = await RingData.create({
+    ProductImages: uploadedImages,
+    ProductName,
+    ProductCategory,
+    ProductPrice,
+    ProductQty,
+    ProductDescription,
+    ProductGender,
+    adminId,
+  });
 
-  
+  res.status(201).json(
+    new apiResponse(201, "Ring data added successfully", {
+      ringData: newRing,
+    })
+  );
+});
+
