@@ -69,4 +69,27 @@ const updateReview = asyncHandler(async (req, res) => {
     return res.status(200).json(new apiResponse(200, updatedReview, "Review updated successfully"));
 });
 
+// Delete Review
+const deleteReview = asyncHandler(async (req, res) => {
+    const { reviewId } = req.params;
 
+    if (!reviewId) {
+        throw new apiError(400, "Review ID is required");
+    }
+
+    const deletedReview = await Review.findByIdAndDelete(reviewId);
+
+    if (!deletedReview) {
+        throw new apiError(404, "Review not found");
+    }
+
+    return res.status(200).json(new apiResponse(200, {}, "Review deleted successfully"));
+});
+
+export {
+    createReview,
+    getReviewsByProduct,
+    getReviewsByUser,
+    updateReview,
+    deleteReview
+};
