@@ -14,3 +14,19 @@ const orderSchema = new Schema(
       }
   ],
    
+ totalAmount: {
+      type: Number,
+      required: true,
+    },
+    orderStatus: {
+      type: String,
+      enum: ["Pending", "Success", "Canceled"],
+      default: "Pending",
+    },
+  },
+  {
+    timestamps: true, 
+  }
+);
+
+export const Order = mongoose.model("Order", orderSchema);
