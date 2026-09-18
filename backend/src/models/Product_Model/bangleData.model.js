@@ -31,4 +31,12 @@ const bangleDataSchema = new Schema(
             type: String,
             required: true,
         },
-       
+        adminId: {
+            type: mongoose.Schema.Types.ObjectId, ref: "Admin", required: true 
+        },
+
+}, {timestamps: true});
+
+
+export const BangleData = mongoose.model("BangleData", bangleDataSchema) 
+
