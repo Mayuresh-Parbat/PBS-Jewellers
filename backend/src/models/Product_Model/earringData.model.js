@@ -1,4 +1,3 @@
-
 import mongoose, {Schema} from "mongoose";
 
 const earringDataSchema = new Schema(
@@ -11,8 +10,7 @@ const earringDataSchema = new Schema(
             type: String,
             required: true,
         },
-       
- ProductCategory: {
+        ProductCategory: {
             type: String,
             required: true,
 
@@ -29,7 +27,7 @@ const earringDataSchema = new Schema(
             type: String,
             required: true,
         },
-         ProductGender: {
+        ProductGender: {
             type: String,
             required: true,
         },
@@ -41,4 +39,3 @@ const earringDataSchema = new Schema(
 
 
 export const EarringData = mongoose.model("EarringData", earringDataSchema)
-       
