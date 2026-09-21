@@ -29,4 +29,16 @@ const earringDataSchema = new Schema(
             type: String,
             required: true,
         },
+         ProductGender: {
+            type: String,
+            required: true,
+        },
+        adminId: {
+            type: mongoose.Schema.Types.ObjectId, ref: "Admin", required: true 
+        }, // Reference to Admin
+
+}, {timestamps: true});
+
+
+export const EarringData = mongoose.model("EarringData", earringDataSchema)
        
