@@ -23,4 +23,19 @@ const mangalsutraDataSchema = new Schema(
             type: Number,
             required: true,
         },
-       
+        ProductDescription: {
+            type: String,
+            required: true,
+        },
+        ProductGender: {
+            type: String,
+            required: true,
+        },
+        adminId: {
+            type: mongoose.Schema.Types.ObjectId, ref: "Admin", required: true 
+        }, // Reference to Admin
+
+}, {timestamps: true});
+
+
+export const MangalsutraData = mongoose.model("MangalsutraData", mangalsutraDataSchema)
