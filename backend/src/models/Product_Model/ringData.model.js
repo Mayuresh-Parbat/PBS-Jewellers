@@ -31,3 +31,11 @@ const ringtDataSchema = new Schema(
             type: String,
             required: true,
         },
+                adminId: {
+            type: mongoose.Schema.Types.ObjectId, ref: "Admin", required: true 
+        }, // Reference to Admin
+
+}, {timestamps: true});
+
+
+export const RingData = mongoose.model("RingData", ringtDataSchema)
