@@ -19,3 +19,15 @@ const ringtDataSchema = new Schema(
             type: Number,
             required: true
         },
+        ProductQty: {
+            type: Number,
+            required: true,
+        },
+        ProductDescription: {
+            type: String,
+            required: true,
+        },
+        ProductGender: {
+            type: String,
+            required: true,
+        },
