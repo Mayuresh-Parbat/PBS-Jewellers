@@ -15,3 +15,13 @@ const adminSchema = new Schema (
             lowercase: true,
             trim: true,
         },
+                adminPhoneNumber:{
+            type: String,
+            required: true,
+            unique: true,
+        },
+        adminEmail: {
+            type: String,
+            required: true,
+            unique: true,
+        },
