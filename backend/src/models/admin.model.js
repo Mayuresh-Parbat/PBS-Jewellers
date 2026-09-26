@@ -25,3 +25,18 @@ const adminSchema = new Schema (
             required: true,
             unique: true,
         },
+                adminPassword: {
+            type: String,
+            required: [true, 'Password is required']
+        },
+        refreshToken: {
+            type: String
+        },
+        
+
+    }, 
+    {
+        timestamps: true
+    } 
+);
+
