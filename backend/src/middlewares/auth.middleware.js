@@ -60,7 +60,13 @@ export const verifyJWT = asyncHandler(async (req, _, next) => {
             req.admin = admin; // Attach the admin to the request
             return next(); // Continue to the next middleware or route
         }
-
+  // If neither User nor Admin is found, throw an error
+        throw new apiError(401, "Invalid Access Token");
+    } catch (error) {
+        // Handle token verification or other errors
+        throw new apiError(401, error?.message || "Invalid access token");
+    }
+});
       
         
 
