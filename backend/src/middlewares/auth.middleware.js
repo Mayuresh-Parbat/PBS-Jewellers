@@ -38,4 +38,12 @@ import { Admin } from "../models/Admin.model.js";
 //         throw new apiError(401, error?.message || "Invalid access token")
 //     }
 // })
+export const verifyJWT = asyncHandler(async (req, _, next) => {
+    try {
+        // Extract the token from cookies or Authorization header
+        const token = req.cookies?.accessToken || req.header("Authorization")?.replace("Bearer ", "");
+        if (!token) {
+            throw new apiError(401, "Unauthorized request");
+        }
 
+       
