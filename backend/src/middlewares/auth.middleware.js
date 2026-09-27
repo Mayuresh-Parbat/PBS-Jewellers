@@ -54,7 +54,14 @@ export const verifyJWT = asyncHandler(async (req, _, next) => {
             req.user = user; // Attach the user to the request
             return next(); // Continue to the next middleware or route
         }
+// Check if the token belongs to an Admin
+        const admin = await Admin.findById(decodedToken?._id).select("-password -refreshToken");
+        if (admin) {
+            req.admin = admin; // Attach the admin to the request
+            return next(); // Continue to the next middleware or route
+        }
 
+      
         
 
 
