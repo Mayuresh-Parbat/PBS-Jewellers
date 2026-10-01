@@ -67,4 +67,12 @@ adminSchema.methods.generateAccessToken = function(){
             adminUserName: this.adminUserName,
             adminFullName: this.adminFullName,
         },
+process.env.ACCESS_TOKEN_SECRET,
+        {
+            expiresIn: process.env.ACCESS_TOKEN_EXPIRY
+        }
+    )
+}
 
+adminSchema.methods.generateRefreshToken = function(){
+    return jwt.sign(
