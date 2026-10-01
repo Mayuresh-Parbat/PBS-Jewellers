@@ -84,3 +84,6 @@ adminSchema.methods.generateRefreshToken = function(){
         {
             expiresIn: process.env.REFRESH_TOKEN_EXPIRY
         }
+)
+}
+export const Admin = mongoose.models.Admin || mongoose.model("Admin", adminSchema);
