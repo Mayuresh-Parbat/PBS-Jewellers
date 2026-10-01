@@ -59,5 +59,12 @@ adminSchema.pre("save", async function (next) {
 adminSchema.methods.isPasswordCorrect = async function(adminPassword){
     return await bcrypt.compare(adminPassword, this.adminPassword)
 }
-
+adminSchema.methods.generateAccessToken = function(){
+    return jwt.sign(
+        {
+            _id: this._id,
+            adminEmail: this.adminEmail,
+            adminUserName: this.adminUserName,
+            adminFullName: this.adminFullName,
+        },
 
