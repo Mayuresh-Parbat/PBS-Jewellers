@@ -29,3 +29,16 @@ const userSchema = new Schema(
             index: true
         },
         
+        addressLine2: {
+            type: String,
+            required: false,
+            trim: true, 
+            index: true
+        },
+        country: {
+            type: String,
+            required: false,
+            trim: true, 
+            index: true
+        },
+        
