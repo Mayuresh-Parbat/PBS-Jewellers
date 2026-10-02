@@ -41,4 +41,15 @@ const userSchema = new Schema(
             trim: true, 
             index: true
         },
-        
+        city: {
+            type: String,
+            required: false,
+            trim: true, 
+            index: true
+        },
+        state: {
+            type: String,
+            required: false,
+            trim: true, 
+            index: true
+        },
