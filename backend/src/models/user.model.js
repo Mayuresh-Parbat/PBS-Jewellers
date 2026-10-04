@@ -75,3 +75,14 @@ const userSchema = new Schema(
             type: String,
             required: [true, 'Password is required']
         },
+        userOrders: [{
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Order", 
+        }],
+        
+        
+        refreshToken: {
+            type: String
+        }
+
+    },
