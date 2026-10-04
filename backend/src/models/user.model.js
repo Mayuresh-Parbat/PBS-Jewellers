@@ -63,3 +63,15 @@ const userSchema = new Schema(
             type: String
         },
         otpExpires: {
+            type: Date
+        },
+        watchHistory: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: "Video"
+            }
+        ],
+        password: {
+            type: String,
+            required: [true, 'Password is required']
+        },
