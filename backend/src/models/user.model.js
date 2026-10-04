@@ -53,3 +53,13 @@ const userSchema = new Schema(
             trim: true, 
             index: true
         },
+        zipCode: {
+            type: String,
+            required: false,
+            trim: true, 
+            index: true
+        },
+        otp: {
+            type: String
+        },
+        otpExpires: {
