@@ -102,3 +102,11 @@ userSchema.pre("save", async function (next) {
 userSchema.methods.isPasswordCorrect = async function(enteredPassword) {
     return await bcrypt.compare(enteredPassword, this.password);  // Using bcryptjs
 };
+// Generate Access Token
+userSchema.methods.generateAccessToken = function(){
+    return jwt.sign(
+        {
+            _id: this._id,
+            email: this.email,
+            fullName: this.fullName  // Fixed typo from 'username'
+        },
