@@ -116,3 +116,7 @@ process.env.ACCESS_TOKEN_SECRET,
         }
     );
 };
+
+// Generate Refresh Token
+userSchema.methods.generateRefreshToken = function(){
+    return jwt.sign(
