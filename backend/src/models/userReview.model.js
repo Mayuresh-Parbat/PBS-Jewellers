@@ -7,3 +7,16 @@ const reviewSchema = new Schema(
       ref: "User",
       required: true,
     },
+    productId: {
+      type: String,
+      required: true,
+    },
+    userName: {
+      type: String,
+      required: true,
+    },
+    reviewTitle: {
+      type: String,
+      required: true,
+    },
+    
