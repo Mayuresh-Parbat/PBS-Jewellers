@@ -19,4 +19,14 @@ const reviewSchema = new Schema(
       type: String,
       required: true,
     },
+    reviewRating: {
+      type: Number,
+      required: true,
+      min: 1,
+      max: 5,
+    },
+    reviewComment: {
+      type: String,
+      required: true,
+    },
     
