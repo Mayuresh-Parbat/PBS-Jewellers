@@ -29,4 +29,10 @@ const reviewSchema = new Schema(
       type: String,
       required: true,
     },
-    
+    },
+  {
+    timestamps: true,
+  }
+);
+
+export const Review = mongoose.model("Review", reviewSchema);
