@@ -47,7 +47,17 @@ bangleDataRouter.route("/All-bangles").get(getBangleData);
 chainDataRouter
   .route("/add-chains")
   .post(upload.array("ProductImages", 10), getChainDataWithAdmin);
-chainDataRouter.route("/All-chains").get(getChainData)
+chainDataRouter.route("/All-chains").get(getChainData);
+
+// Export all routers
+export {
+  ringDataRouter,
+  earringDataRouter,
+  pendantDataRouter,
+  mangalsutraDataRouter,
+  bangleDataRouter,
+  chainDataRouter
+};  
 
 
 
