@@ -43,5 +43,11 @@ bangleDataRouter
   .post(upload.array("ProductImages", 10), getBangleDataWithAdmin);
 bangleDataRouter.route("/All-bangles").get(getBangleData);
 
+// Chain routes
+chainDataRouter
+  .route("/add-chains")
+  .post(upload.array("ProductImages", 10), getChainDataWithAdmin);
+chainDataRouter.route("/All-chains").get(getChainData)
+
 
 
