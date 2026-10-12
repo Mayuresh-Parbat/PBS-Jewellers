@@ -19,4 +19,16 @@ ringDataRouter
   .route("/add-ring")
   .post(upload.array("ProductImages", 10), getRingDataWithAdmin);
 ringDataRouter.route("/All-rings").get(getRingData);
+// Earring routes
+earringDataRouter
+  .route("/add-earring")
+  .post(upload.array("ProductImages", 10), getEarringDataWithAdmin);
+earringDataRouter.route("/All-earrings").get(getEarringData);
+
+// Pendant routes
+pendantDataRouter
+  .route("/add-pendants")
+  .post(upload.array("ProductImages", 10), getPendantDataWithAdmin);
+pendantDataRouter.route("/All-pendants").get(getPendantData);
+
 
