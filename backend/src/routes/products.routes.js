@@ -31,4 +31,17 @@ pendantDataRouter
   .post(upload.array("ProductImages", 10), getPendantDataWithAdmin);
 pendantDataRouter.route("/All-pendants").get(getPendantData);
 
+// Mangalsutra routes
+mangalsutraDataRouter
+  .route("/add-mangalsutra")
+  .post(upload.array("ProductImages", 10), getMangalsutraDataWithAdmin);
+mangalsutraDataRouter.route("/All-mangalsutra").get(getMangalsutraData);
+
+// Bangle routes
+bangleDataRouter
+  .route("/add-bangles")
+  .post(upload.array("ProductImages", 10), getBangleDataWithAdmin);
+bangleDataRouter.route("/All-bangles").get(getBangleData);
+
+
 
