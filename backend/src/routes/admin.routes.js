@@ -8,3 +8,10 @@ const adminRouter = Router()
 
 // for Admin
 adminRouter.route("/register-admin").post(registerAdmin)
+adminRouter.route("/login-admin").post(loginAdmin)
+adminRouter.route("/logout-admin").post(verifyJWT, logoutAdmin)
+adminRouter.route("/refresh-token-admin").post(refreshAccessTokenAdmin)
+adminRouter.route("/current-admin").get(verifyJWT, getCurrentAdmin)
+adminRouter.route("/All-Users").get(getAllUsers)
+
+export default adminRouter
